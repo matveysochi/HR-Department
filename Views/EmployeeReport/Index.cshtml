@@ -1,0 +1,60 @@
+﻿@model Dictionary<Division, IEnumerable<Employee>>
+
+<h3>Сотрудники организации</h3>
+<form method="get" asp-action="Index">
+    <div class="row p-1 m-1">
+        <div class="col">
+            <label class="form-label">Начало периода</label>
+            <input type="date" class="form-control" name="startDate" value="@ViewBag.StartDate" />
+        </div>
+        <div class="col">
+            <label class="form-label">Конец периода</label>
+            <input type="date" class="form-control" name="endDate" value="@ViewBag.EndDate" />
+        </div>
+    </div>
+    <div class="row p-1 m-1">
+        <div class="col">
+            <select class="form-control" name="divisionId">
+                <option selected value="@null">Все подразделения</option>
+                @foreach (var d in (IEnumerable<Division>)ViewBag.Divisions)
+                {
+                    <option selected=@(ViewBag.DivisionId == d.Id)
+                            value="@d.Id">
+                        @d
+                    </option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row p-1 m-1">
+        <div class="col">
+            <button class="btn btn-primary">Сформировать</button>
+        </div>
+    </div>
+</form>
+<div class="p-3">
+    <table class="table table-sm table-bordered">
+        <thead>
+            <tr>
+                <th>Подразделения</th>
+                <th>Сотрудник</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var division in Model.Keys)
+            {
+                <tr class="bg-secondary text-white">
+                    <th>@division</th>
+                    <td></td>
+                </tr>
+                foreach(var employee in Model[division])
+                {
+                    <tr>
+                        <td></td>
+                        <td>@employee</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

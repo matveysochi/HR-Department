@@ -1,0 +1,25 @@
+﻿@model Employee
+
+<h3>Сотрудник</h3>
+<form method="post" asp-action="Update">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label class="form-label" asp-for="Name">Имя</label>
+        <input type="text" class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Surname">Фамилия</label>
+        <input type="text" class="form-control" asp-for="Surname" />
+        <span asp-validation-for="Surname"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Patronymic">Отчество</label>
+        <input type="text" class="form-control" asp-for="Patronymic" />
+        <span asp-validation-for="Patronymic"></span>
+    </div>
+    <button class="btn btn-primary" asp-action="Update">
+        @(Model.Id == 0 ? "Создать" : "Обновить")
+    </button>
+    <a class="btn btn-secondary" asp-action="Index">Отмена</a>
+</form>

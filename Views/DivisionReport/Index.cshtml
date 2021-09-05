@@ -1,0 +1,19 @@
+﻿@model Dictionary<Division, IEnumerable<Division>>
+
+<h3>Структура организации</h3>
+<form method="get" asp-action="Index">
+    <div class="row p-1 m-1">
+        <div class="col">
+            <input type="date" class="form-control" name="date" value="@ViewBag.Date" />
+        </div>
+    </div>
+    <div class="row p-1 m-1">
+        <div class="col">
+            <button class="btn btn-primary">Сформировать</button>
+        </div>
+    </div>
+
+</form>
+<div class="p-3">
+    <company structure="@Model" />
+</div>

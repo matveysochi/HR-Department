@@ -1,0 +1,13 @@
+﻿@{
+    string controller = ViewContext.RouteData.Values["controller"].ToString();
+    var menuElements = new[] {
+        ("Home", "Главная"),
+        ("Employee", "Сотрудники"),
+        ("Division", "Подразделения"),
+        ("EmployeeMovement", "Движения сотрудников"),
+        ("DivisionMovement", "Движения подразделений"),
+        ("EmployeeReport", "Отчет по сотрудникам"),
+        ("DivisionReport", "Отчет по подразделениям"),
+    };
+}
+<navmenu elements="@menuElements" controller="@controller"></navmenu>

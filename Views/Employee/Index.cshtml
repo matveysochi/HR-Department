@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Employee>
+
+<h3>Сотрудники</h3>
+<table class="table table-sm table-striped table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">№</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1; }
+        @foreach (var e in Model)
+        {
+            <tr>
+                <td class="text-center">@(i++)</td>
+                <td>@e.Surname</td>
+                <td>@e.Name</td>
+                <td>@e.Patronymic</td>
+                <td class="text-center">
+                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@e.Id">Редактировать</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" asp-action="Create">Новый сотрудник</a>

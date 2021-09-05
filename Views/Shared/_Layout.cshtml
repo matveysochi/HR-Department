@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Human Resources Department</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row vh-100">
+            <div class="col bg-primary w-auto">
+                @Html.Partial("NavMenu");
+            </div>
+            <div class="col-10 justify-content-center">
+                <div>
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

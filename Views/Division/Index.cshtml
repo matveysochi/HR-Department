@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Division>
+
+<h3>Подразделения</h3>
+<table class="table table-sm table-striped table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">№</th>
+            <th class="text-center">Код</th>
+            <th>Наименование</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1; }
+        @foreach (var e in Model)
+        {
+            <tr>
+                <td class="text-center">@(i++)</td>
+                <td class="text-center">@e.Code</td>
+                <td>@e.Name</td>
+                <td class="text-center">
+                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@e.Id">Редактировать</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary" asp-action="Create">Новое подразделение</a>
